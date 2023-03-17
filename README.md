@@ -1,5 +1,5 @@
 # Software-Rasterizer
-A tiny software rasterizer implemented in C++ for learning purposes, following the [TinyRenderer](https://github.com/ssloy/tinyrenderer/wiki) tutorials.
+A tiny software rasterizer implemented in C++ for learning purposes, following the [TinyRenderer](https://github.com/ssloy/tinyrenderer/wiki) tutorials. [[Chinese Documentaion](./assets/TJRenderer%20Documentation.pdf)]
 
 ## 1. Introduction
 
@@ -200,13 +200,13 @@ The following images demonstrate the effect of backface culling when applied to 
 
 ### 5.1 Coordinate Transformation in the Pipeline
 
-![1579017607103](assets\1579017607103.png)
+![1579017607103](assets/1579017607103.png)
 
 When a model is imported, it has its own coordinate system known as the model coordinate system. We need to transform it into a unified world coordinate system. Since we can observe the model from different viewpoints, a stationary object in the world coordinate system may appear differently in the camera coordinate system. Thus, we need to obtain its coordinate in the camera coordinate system using the camera matrix. After the object is projected onto the clipping coordinate system by the projection matrix, clipping is performed within the visible area. The object is then projected onto the normalized device coordinate system after perspective transformation, and finally translated and scaled to obtain the coordinates displayed on the screen.
 
 ### 5.2 Derivation of the Camera Matrix
 
-![1579019852181](assets\1579019852181.png)
+![1579019852181](assets/1579019852181.png)
 
 From intuition, it can be seen that by transforming the camera coordinate system with the object into the world coordinate system, we can obtain the coordinate of the object in the transformed camera coordinate system.
 
@@ -220,7 +220,7 @@ In this project, for the sake of convenience in implementation, we fixed the cam
 
 **Incorrect Perspective Interpolation**
 
-![1579026915096](assets\1579026915096.png)
+![1579026915096](assets/1579026915096.png)
 
 Suppose c is the midpoint of a and b. If we simply interpolate it, the intensity of c would be 0.5, which is inconsistent with the initial primitive.
 
@@ -230,7 +230,7 @@ However, we can use some functions to obtain the correct result.
 
 **Perspective interpolation correction proof**
 
-![1579058367218](assets\1579058367218.png)
+![1579058367218](assets/1579058367218.png)
 
 As shown in the figure, s is the interpolation parameter on the image plane, and t is the interpolation parameter on the primitive.
 
